@@ -17,6 +17,18 @@ catch(PDOException $e)
 
 ###################### No user serviceable parts below #####################
 
+function get_error_message($result)
+{
+    global $db;
+
+    if (!$result)
+        return "";
+
+    $errorInfo = $db->errorInfo();
+    return $errorInfo[2];
+}
+
+
 #
 # The XMLRPC server object
 #
@@ -55,7 +67,7 @@ function mutelist_request($method_name, $params, $app_data)
 
     $response_xml = xmlrpc_encode(array(
         'success'      => $result,
-        'errorMessage' => $query->errorInfo(),
+        'errorMessage' => get_error_message($result),
         'mutelist'     => $mutelist
     ));
 
@@ -87,7 +99,7 @@ function mutelist_update($method_name, $params, $app_data)
 
     $response_xml = xmlrpc_encode(array(
         'success'      => $result,
-        'errorMessage' => $query->errorInfo()
+        'errorMessage' => get_error_message($result)
     ));
 
     print $response_xml;
@@ -115,7 +127,7 @@ function mutelist_remove($method_name, $params, $app_data)
 
     $response_xml = xmlrpc_encode(array(
         'success'      => $result,
-        'errorMessage' => $query->errorInfo()
+        'errorMessage' => get_error_message($result)
     ));
 
     print $response_xml;
