@@ -18,7 +18,7 @@
 -- Table structure for table `mutelist`
 --
 
-CREATE TABLE `mutelist` (
+CREATE TABLE IF NOT EXISTS `mutelist` (
   `AgentID` char(36) COLLATE utf8_unicode_ci NOT NULL,
   `MuteID` char(36) COLLATE utf8_unicode_ci NOT NULL,
   `MuteName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
