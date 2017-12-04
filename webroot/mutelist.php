@@ -1,6 +1,6 @@
 <?php
 
-include("settings/databaseinfo-modules.php");
+include("databaseinfo.php");
 
 // Attempt to connect to the database with the mutelist table
 try {
