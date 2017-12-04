@@ -278,7 +278,9 @@ namespace OpenSim.Region.CoreModules.Avatar.InstantMessage
             Hashtable result = GenericXMLRPCRequest(ReqHash,
                     "mutelist_request", serverURI);
 
-            if (!Convert.ToBoolean(result["success"]))
+            //If no mutelist exists PHP sends "<string/>" which results in the
+            //mutelist hashtable entry being null rather than an empty string.
+            if (!Convert.ToBoolean(result["success"]) || result["mutelist"] == null)
                 mutelist = null;
             else
                 mutelist = result["mutelist"].ToString();
