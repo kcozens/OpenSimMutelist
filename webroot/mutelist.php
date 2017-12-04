@@ -37,7 +37,6 @@ function mutelist_request($method_name, $params, $app_data)
     $req        = $params[0];
 
     $avatarUUID = $req['avataruuid'];
-    $crc        = $req['crc'];
 
     $query = $db->prepare("SELECT * FROM mutelist WHERE AgentID = ?");
     $result = $query->execute( array($avatarUUID) );
@@ -109,7 +108,6 @@ function mutelist_remove($method_name, $params, $app_data)
 
     $avatarUUID = $req['avataruuid'];
     $muteUUID   = $req['muteuuid'];
-    $name       = $req['name'];
 
     $query = $db->prepare("DELETE FROM mutelist WHERE" .
                           " AgentID = ? AND MuteID = ?");

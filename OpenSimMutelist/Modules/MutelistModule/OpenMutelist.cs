@@ -271,7 +271,6 @@ namespace OpenSim.Region.CoreModules.Avatar.InstantMessage
 
             Hashtable ReqHash = new Hashtable();
             ReqHash["avataruuid"] = client.AgentId.ToString();
-            ReqHash["crc"]        = crc.ToString();
 
             string serverURI = String.Empty;
             GetUserMutelistServerURI(client.AgentId, out serverURI);
@@ -337,7 +336,6 @@ namespace OpenSim.Region.CoreModules.Avatar.InstantMessage
             Hashtable ReqHash = new Hashtable();
             ReqHash["avataruuid"] = client.AgentId.ToString();
             ReqHash["muteuuid"]   = MuteID.ToString();
-            ReqHash["name"]       = Name.ToString();
 
             string serverURI = String.Empty;
             GetUserMutelistServerURI(client.AgentId, out serverURI);
